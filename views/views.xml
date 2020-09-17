@@ -1,0 +1,89 @@
+<odoo>
+  <data>
+      <record id="vehicle_form_view" model="ir.ui.view">
+          <field name="name">vehicle.form.view</field>
+          <field name="model">vehicle.matservice</field>
+          <field name="arch" type="xml">
+              <form string="Vehicle">
+                  <sheet>
+                      <group>
+                          <group>
+                              <field name="make"/>
+                              <field name="vehicle_model"/>
+                              <field name="year"/>
+                              <field name="colour"/>
+                              <field name="vin_no"/>
+                              <field name="reg"/>
+                          </group>
+                          <group>
+                              <field name="owner_id"/>
+                          </group>
+                      </group>
+                      <notebook>
+                          <page string="Orders">
+                              <field name="quotes_ids"/>
+
+                          </page>
+                      </notebook>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="matservice.list">
+      <field name="name">matservice list</field>
+      <field name="model">matservice.matservice</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="matservice.action_window">
+      <field name="name">matservice window</field>
+      <field name="res_model">matservice.matservice</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="matservice.action_server">
+      <field name="name">matservice server</field>
+      <field name="model_id" ref="model_matservice_matservice"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="matservice" id="matservice.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="matservice.menu_1" parent="matservice.menu_root"/>
+    <menuitem name="Menu 2" id="matservice.menu_2" parent="matservice.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="matservice.menu_1_list" parent="matservice.menu_1"
+              action="matservice.action_window"/>
+    <menuitem name="Server to list" id="matservice" parent="matservice.menu_2"
+              action="matservice.action_server"/>
+    -->
+  </data>
+</odoo>

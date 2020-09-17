@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_report_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@class='row mt32 mb32']" position="after">
+             <div class="row mt32 mb32" id="test_inherit">
+                 <div name="vehicle" t-if="doc.vehicle_id" class="col-auto mw-100 mb-2">
+                    <strong>Vehicle:</strong>
+                    <p class="m-0" t-field="doc.vehicle_id"/>
+                     <p class="m-0" t-field="doc.reg"/>
+                     <p class="m-0" t-field="doc.make"/>
+                     <p class="m-0" t-field="doc.year"/>
+                </div>
+             </div>
+        </xpath>
+    </template>
+    <template id="external_report_inherit" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[@class='col-3 mb4']" position="replace">
+            <div class="col-3 mb4">
+                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 90px;" alt="Logo"/>
+            </div>
+        </xpath>
+    </template>
+
+
+</odoo>
